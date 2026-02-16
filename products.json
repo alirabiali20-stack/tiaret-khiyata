@@ -1,0 +1,74 @@
+[
+  {
+    "id": "H-001",
+    "title_ar": "قندورة رمادية مطرزة",
+    "title_fr": "Gandoura brodée grise",
+    "category_ar": "القنادر والفساتين",
+    "category_fr": "Gandouras & Robes",
+    "price": "حسب الطلب",
+    "img": "images/qandora-1.jpg"
+  },
+  {
+    "id": "H-002",
+    "title_ar": "قندورة بيضاء تقليدية",
+    "title_fr": "Gandoura blanche traditionnelle",
+    "category_ar": "القنادر والفساتين",
+    "category_fr": "Gandouras & Robes",
+    "price": "حسب الطلب",
+    "img": "images/qandora-2.jpg"
+  },
+  {
+    "id": "H-003",
+    "title_ar": "مئزر مطبخ احترافي",
+    "title_fr": "Tablier de cuisine professionnel",
+    "category_ar": "مآزر المطبخ",
+    "category_fr": "Tabliers",
+    "price": "حسب الطلب",
+    "img": "images/apron-1.jpg"
+  },
+  {
+    "id": "H-004",
+    "title_ar": "مئزر مطبخ مزخرف",
+    "title_fr": "Tablier décoré",
+    "category_ar": "مآزر المطبخ",
+    "category_fr": "Tabliers",
+    "price": "حسب الطلب",
+    "img": "images/apron-2.jpg"
+  },
+  {
+    "id": "H-005",
+    "title_ar": "أقمشة أطفال",
+    "title_fr": "Tissus enfants",
+    "category_ar": "أطفال ومفارش",
+    "category_fr": "Enfants & Tissus",
+    "price": "حسب الطلب",
+    "img": "images/kids-1.jpg"
+  },
+  {
+    "id": "H-006",
+    "title_ar": "مفارش أطفال مزخرفة",
+    "title_fr": "Couvertures enfants décorées",
+    "category_ar": "أطفال ومفارش",
+    "category_fr": "Enfants & Tissus",
+    "price": "حسب الطلب",
+    "img": "images/kids-2.jpg"
+  },
+  {
+    "id": "H-007",
+    "title_ar": "سلة تقليدية مزخرفة",
+    "title_fr": "Panier traditionnel décoré",
+    "category_ar": "سلال تقليدية",
+    "category_fr": "Paniers traditionnels",
+    "price": "حسب الطلب",
+    "img": "images/basket-1.jpg"
+  },
+  {
+    "id": "H-008",
+    "title_ar": "قماش مزخرف",
+    "title_fr": "Tissu décoratif",
+    "category_ar": "أقمشة خاصة",
+    "category_fr": "Tissus spéciaux",
+    "price": "حسب الطلب",
+    "img": "images/fabric-1.jpg"
+  }
+]
