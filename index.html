@@ -1,0 +1,742 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>خياطة تيارت حربوش | Couture Tiaret Harbouch</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --bg:#ffffff;
+      --pink:#ec4899;
+      --pink2:#f9a8d4;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:rgba(17,24,39,.10);
+      --shadow:0 18px 55px rgba(17,24,39,.10);
+      --wa:#25D366;
+      --fb:#1877F2;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:'Cairo',sans-serif;
+      color:var(--text);
+      background:
+        radial-gradient(900px 450px at 15% -10%, rgba(236,72,153,.16), transparent 60%),
+        radial-gradient(900px 450px at 85% 0%, rgba(249,168,212,.20), transparent 60%),
+        var(--bg);
+    }
+    a{color:inherit}
+    .container{max-width:1120px;margin:auto;padding:16px}
+
+    header{
+      position:sticky; top:0; z-index:20;
+      background:rgba(255,255,255,.85);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid var(--line);
+    }
+    .topbar{
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+      flex-wrap:wrap;
+    }
+    .brand{display:flex; align-items:center; gap:12px; min-width:260px;}
+    .logo{
+      width:46px;height:46px;border-radius:16px;
+      background:linear-gradient(135deg, rgba(236,72,153,.95), rgba(249,168,212,.65));
+      display:grid; place-items:center;
+      font-weight:900; color:#fff;
+      box-shadow:0 18px 45px rgba(236,72,153,.25);
+    }
+    .brand h1{margin:0;font-size:18px;line-height:1.2}
+    .brand p{margin:2px 0 0;color:var(--muted);font-size:12px}
+
+    .actions{display:flex; gap:8px; flex-wrap:wrap; align-items:center;}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 14px; border-radius:999px;
+      text-decoration:none; border:1px solid var(--line);
+      background:rgba(255,255,255,.65);
+      font-weight:900; transition:.2s;
+      box-shadow:0 6px 20px rgba(17,24,39,.06);
+      cursor:pointer;
+    }
+    .btn:hover{transform:translateY(-1px); border-color:rgba(236,72,153,.35)}
+    .pill{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.65);
+      border-radius:999px; padding:6px;
+      display:flex; gap:6px;
+      box-shadow:0 6px 20px rgba(17,24,39,.06);
+    }
+    .pill button{
+      border:0; cursor:pointer;
+      font-family:'Cairo',sans-serif;
+      font-weight:900;
+      padding:8px 12px; border-radius:999px;
+      background:transparent; color:var(--muted);
+      transition:.2s;
+    }
+    .pill button.active{
+      background:linear-gradient(135deg, rgba(236,72,153,.92), rgba(249,168,212,.85));
+      color:#fff;
+      box-shadow:0 12px 30px rgba(236,72,153,.22);
+    }
+
+    .heroBox{
+      border:1px solid var(--line);
+      background:linear-gradient(135deg, rgba(236,72,153,.10), rgba(255,255,255,.75));
+      border-radius:24px;
+      padding:20px;
+      box-shadow:var(--shadow);
+      overflow:hidden;
+      position:relative;
+    }
+    .heroBox:before{
+      content:"";
+      position:absolute;
+      inset:-120px -120px auto auto;
+      width:260px;height:260px;
+      background:radial-gradient(circle, rgba(236,72,153,.22), transparent 60%);
+      border-radius:999px;
+      transform:rotate(15deg);
+    }
+    .heroTitle{margin:0 0 8px;font-size:22px}
+    .heroDesc{margin:0;color:var(--muted);line-height:1.9;position:relative}
+
+    .filters{display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; position:relative;}
+    .input, select{
+      background:rgba(255,255,255,.85);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:12px 12px;
+      outline:none;
+      font-family:'Cairo',sans-serif;
+      min-width:220px;
+      box-shadow:0 6px 18px rgba(17,24,39,.06);
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap:14px;
+      margin-top:14px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.90);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 16px 45px rgba(17,24,39,.08);
+      transition:.2s;
+      display:flex;
+      flex-direction:column;
+    }
+    .card:hover{
+      transform:translateY(-2px);
+      border-color:rgba(236,72,153,.28);
+      box-shadow:0 22px 60px rgba(236,72,153,.12);
+    }
+
+    .thumbWrap{
+      position:relative;
+      width:100%;
+      height:220px;
+      overflow:hidden;
+      border-bottom:1px solid var(--line);
+      background:#fff;
+    }
+    .thumbImg{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform:scale(1.02);
+    }
+    .badge{
+      position:absolute;
+      top:12px;
+      inset-inline-end:12px;
+      padding:7px 10px;
+      border-radius:999px;
+      font-size:12px;
+      font-weight:900;
+      color:#fff;
+      background:rgba(17,24,39,.60);
+      border:1px solid rgba(255,255,255,.16);
+      backdrop-filter: blur(8px);
+      z-index:2;
+    }
+    .photoBtn{
+      position:absolute;
+      bottom:12px;
+      inset-inline-start:12px;
+      padding:9px 12px;
+      border-radius:999px;
+      font-weight:900;
+      border:1px solid rgba(236,72,153,.25);
+      background:rgba(236,72,153,.12);
+      text-decoration:none;
+      white-space:nowrap;
+      cursor:pointer;
+      z-index:2;
+      font-family:'Cairo',sans-serif;
+    }
+    .photoBtn:hover{border-color:rgba(236,72,153,.45)}
+
+    .body{
+      padding:12px 12px 14px;
+      display:flex;
+      flex-direction:column;
+      gap:6px;
+      flex:1;
+    }
+    .title{margin:0;font-size:15px;line-height:1.6}
+    .meta{
+      display:flex; align-items:center; justify-content:space-between; gap:10px;
+      font-size:12px; color:var(--muted);
+    }
+    .price{font-weight:900; color:rgba(236,72,153,.95)}
+
+    .order{margin-top:8px; display:flex; gap:8px;}
+    .order a{
+      flex:1;
+      text-align:center;
+      padding:10px 10px;
+      border-radius:14px;
+      text-decoration:none;
+      font-weight:900;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.9);
+      transition:.2s;
+    }
+    .order a:hover{transform:translateY(-1px)}
+    .order a.wa{border-color:rgba(37,211,102,.35); background:rgba(37,211,102,.12)}
+    .order a.fb{border-color:rgba(24,119,242,.35); background:rgba(24,119,242,.12)}
+
+    .note{
+      margin-top:10px;
+      font-size:12px;
+      color:var(--muted);
+      background:rgba(255,255,255,.75);
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:10px 12px;
+    }
+
+    .empty{
+      margin-top:14px;
+      padding:16px;
+      border:1px dashed rgba(17,24,39,.18);
+      border-radius:16px;
+      color:var(--muted);
+      text-align:center;
+      background:rgba(255,255,255,.75);
+    }
+    footer{
+      border-top:1px solid var(--line);
+      color:var(--muted);
+      padding:22px 16px;
+      text-align:center;
+      background:rgba(255,255,255,.65);
+      margin-top:24px;
+    }
+    .small{font-size:12px}
+
+    html[dir="ltr"] body{font-family:system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif}
+
+    /* ===== Modal Gallery ===== */
+    .modal{
+      position:fixed;
+      inset:0;
+      background:rgba(17,24,39,.55);
+      backdrop-filter: blur(6px);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:18px;
+      z-index:9999;
+    }
+    .modal.show{display:flex}
+    .modalCard{
+      width:min(980px, 100%);
+      background:rgba(255,255,255,.95);
+      border:1px solid var(--line);
+      border-radius:22px;
+      overflow:hidden;
+      box-shadow:0 22px 80px rgba(17,24,39,.25);
+    }
+    .modalTop{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:10px;
+      padding:12px 14px;
+      border-bottom:1px solid var(--line);
+      background:rgba(255,255,255,.85);
+    }
+    .modalTitle{
+      font-weight:900;
+      font-size:14px;
+      margin:0;
+      line-height:1.5;
+    }
+    .closeBtn{
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.8);
+      border-radius:12px;
+      padding:8px 10px;
+      cursor:pointer;
+      font-weight:900;
+      font-family:'Cairo',sans-serif;
+    }
+    .modalBody{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:10px;
+      padding:12px;
+    }
+    .viewer{
+      position:relative;
+      width:100%;
+      height:min(62vh, 520px);
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:18px;
+      overflow:hidden;
+    }
+    .viewer img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+      display:block;
+      background:#fff;
+    }
+    .navBtn{
+      position:absolute;
+      top:50%;
+      transform:translateY(-50%);
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.85);
+      border-radius:999px;
+      padding:10px 12px;
+      cursor:pointer;
+      font-weight:900;
+      user-select:none;
+    }
+    .navPrev{inset-inline-start:10px}
+    .navNext{inset-inline-end:10px}
+
+    .thumbsRow{
+      display:flex;
+      gap:8px;
+      overflow:auto;
+      padding-bottom:4px;
+    }
+    .mini{
+      width:92px;
+      height:72px;
+      flex:0 0 auto;
+      border-radius:14px;
+      border:2px solid transparent;
+      overflow:hidden;
+      cursor:pointer;
+      background:#fff;
+    }
+    .mini img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+    .mini.active{border-color:rgba(236,72,153,.8)}
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="container">
+    <div class="topbar">
+      <div class="brand">
+        <div class="logo">✂</div>
+        <div>
+          <h1 id="brandTitle">خياطة تيارت حربوش</h1>
+          <p id="brandSub">تفصيل • تصميم • خياطة حسب الطلب</p>
+        </div>
+      </div>
+
+      <div class="actions">
+        <div class="pill" aria-label="Language switch">
+          <button id="langAR" class="active" type="button">العربية</button>
+          <button id="langFR" type="button">Français</button>
+        </div>
+
+        <a class="btn" id="waTop" href="#" target="_blank" rel="noopener">واتساب • طلب</a>
+        <a class="btn" id="fbTop" href="#" target="_blank" rel="noopener">فيسبوك</a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="container" style="padding-top:18px">
+  <section class="heroBox">
+    <h2 class="heroTitle" id="heroTitle">معرض الأعمال + الطلب المباشر ✅</h2>
+    <p class="heroDesc" id="heroDesc">
+      شاهد الأعمال حسب الأقسام، وافتح صور كل منتج من زر "عرض الصور"، ثم اطلب مباشرة عبر واتساب أو فيسبوك.
+    </p>
+
+    <div class="filters">
+      <input class="input" id="search" placeholder="ابحث عن: عباية، فستان، أطفال، مئزر..." />
+      <select id="category">
+        <option value="all">كل الأقسام</option>
+      </select>
+    </div>
+
+    <div class="note" id="photoNote">
+      ملاحظة: الصور مرتبة حسب الأقسام ✅
+    </div>
+  </section>
+
+  <section>
+    <div class="grid" id="grid"></div>
+    <div class="empty" id="empty" style="display:none;"></div>
+  </section>
+</main>
+
+<footer>
+  <div>© <span id="year"></span> <span id="footBrand">خياطة تيارت حربوش</span></div>
+  <div class="small" id="footLine">للطلب: واتساب 0699 81 58 10</div>
+</footer>
+
+<!-- Modal -->
+<div class="modal" id="modal" aria-hidden="true">
+  <div class="modalCard" role="dialog" aria-modal="true">
+    <div class="modalTop">
+      <p class="modalTitle" id="modalTitle">صور المنتج</p>
+      <button class="closeBtn" id="closeModal" type="button">إغلاق ✕</button>
+    </div>
+    <div class="modalBody">
+      <div class="viewer">
+        <img id="modalImg" src="" alt="" />
+        <div class="navBtn navPrev" id="prevBtn">‹</div>
+        <div class="navBtn navNext" id="nextBtn">›</div>
+      </div>
+      <div class="thumbsRow" id="thumbsRow"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+  const WHATSAPP_NUMBER = "213699815810";
+  const FB_PAGE = "https://www.facebook.com/profile.php?id=100089054046989";
+
+  // روابط الصور المباشرة من ImgBB (كما أرسلتها)
+  const DIRECT_IMAGES = [
+    "https://i.ibb.co/spTZ7Rx6/1771254769178.jpg", // 1
+    "https://i.ibb.co/wFjkMLtL/1771254766076.jpg", // 2
+    "https://i.ibb.co/4R2x7v8r/1771254759586.jpg", // 3
+    "https://i.ibb.co/chP44nzJ/1771254764120.jpg", // 4
+    "https://i.ibb.co/VbjfMVW/1771254755212.jpg", // 5
+    "https://i.ibb.co/tTp718QK/1771254753021.jpg", // 6
+    "https://i.ibb.co/gMGj54ym/1771254740612.jpg", // 7
+    "https://i.ibb.co/cKFfxym5/1771254743556.jpg", // 8
+    "https://i.ibb.co/B2Jt1YLB/1771254736376.jpg", // 9
+    "https://i.ibb.co/kg1Qrvtp/1771254738664.jpg", // 10
+    "https://i.ibb.co/C3b7TZvk/1771254733915.jpg", // 11
+    "https://i.ibb.co/HL7FY26P/1771254644631.jpg", // 12 أطفال
+    "https://i.ibb.co/DSzR66d/1771254642355.jpg", // 13 أطفال
+    "https://i.ibb.co/yBfzhnG6/1771254605680.jpg", // 14 صعفات
+    "https://i.ibb.co/7tnHX8RF/1771254600506.jpg", // 15 صعفات
+    "https://i.ibb.co/Y7WNXgzn/1771254517755.jpg", // 16 مطبخ
+    "https://i.ibb.co/Zz6gq3bt/1771254530381.jpg"  // 17 مطبخ
+  ];
+
+  // تقسيم حسب طلبك:
+  // 1..11 عبايات | 12..13 أطفال | 14..15 صعفات | 16..17 مطبخ
+  const ABAYAS = DIRECT_IMAGES.slice(0, 11);
+  const KIDS   = [DIRECT_IMAGES[11], DIRECT_IMAGES[12]];
+  const SANDALS= [DIRECT_IMAGES[13], DIRECT_IMAGES[14]];
+  const KITCHEN= [DIRECT_IMAGES[15], DIRECT_IMAGES[16]];
+
+  const I18N = {
+    ar: {
+      dir: "rtl",
+      brandTitle: "خياطة تيارت حربوش",
+      brandSub: "تفصيل • تصميم • خياطة حسب الطلب",
+      heroTitle: "معرض الأعمال + الطلب المباشر ✅",
+      heroDesc: "شاهد الأعمال حسب الأقسام، وافتح صور كل منتج من زر \"عرض الصور\"، ثم اطلب مباشرة عبر واتساب أو فيسبوك.",
+      searchPh: "ابحث عن: عباية، فستان، أطفال، مئزر...",
+      allCats: "كل الأقسام",
+      waTop: "واتساب • طلب",
+      fbTop: "فيسبوك",
+      empty: "لا توجد نتائج. جرّب بحث آخر أو اختر قسم مختلف.",
+      viewPhotos: "عرض الصور",
+      orderWA: "اطلب واتساب",
+      orderFB: "فيسبوك",
+      footBrand: "خياطة تيارت حربوش",
+      footLine: "للطلب: واتساب 0699 81 58 10",
+      photoNote: "ملاحظة: الصور مرتبة حسب الأقسام ✅",
+      waMsgTop: "السلام عليكم، أريد طلب من صفحة خياطة تيارت حربوش",
+      waMsgProduct: (p)=>`السلام عليكم، أريد طلب (${p.title_ar}) — كود: ${p.id}\nنوع الخدمة: (خياطة فقط / تصميم + خياطة)\nالمقاس:\nاللون:\nملاحظات:`
+    },
+    fr: {
+      dir: "ltr",
+      brandTitle: "Couture Tiaret Harbouch",
+      brandSub: "Confection • Couture • Sur mesure",
+      heroTitle: "Galerie + commande directe ✅",
+      heroDesc: "Parcourez les catégories, ouvrez les photos via « Voir photos », puis commandez via WhatsApp ou Facebook.",
+      searchPh: "Rechercher : abaya, robe, enfant, tablier...",
+      allCats: "Toutes les catégories",
+      waTop: "WhatsApp • Commander",
+      fbTop: "Facebook",
+      empty: "Aucun résultat. Essayez une autre recherche ou catégorie.",
+      viewPhotos: "Voir photos",
+      orderWA: "Commander WhatsApp",
+      orderFB: "Facebook",
+      footBrand: "Couture Tiaret Harbouch",
+      footLine: "Commande : WhatsApp 0699 81 58 10",
+      photoNote: "Note : Les images sont bien classées ✅",
+      waMsgTop: "Bonjour, je veux commander chez Couture Tiaret Harbouch",
+      waMsgProduct: (p)=>`Bonjour, je veux commander (${p.title_fr}) — Code: ${p.id}\nType: (Couture فقط / Conception + couture)\nTaille:\nCouleur:\nRemarques:`
+    }
+  };
+
+  // توزيع صور العبايات على 5 منتجات (11 صورة)
+  const PRODUCTS = [
+    { id:"H-101", title_ar:"عباية/فستان (موديل 1)", title_fr:"Abaya/Robe (Modèle 1)", category_ar:"عبايات وفساتين", category_fr:"Abayas & Robes", price_ar:"حسب الطلب", price_fr:"Sur demande", images:[ABAYAS[0],ABAYAS[1],ABAYAS[2]] },
+    { id:"H-102", title_ar:"عباية/فستان (موديل 2)", title_fr:"Abaya/Robe (Modèle 2)", category_ar:"عبايات وفساتين", category_fr:"Abayas & Robes", price_ar:"حسب الطلب", price_fr:"Sur demande", images:[ABAYAS[3],ABAYAS[4]] },
+    { id:"H-103", title_ar:"عباية/فستان (موديل 3)", title_fr:"Abaya/Robe (Modèle 3)", category_ar:"عبايات وفساتين", category_fr:"Abayas & Robes", price_ar:"حسب الطلب", price_fr:"Sur demande", images:[ABAYAS[5],ABAYAS[6]] },
+    { id:"H-104", title_ar:"عباية/فستان (موديل 4)", title_fr:"Abaya/Robe (Modèle 4)", category_ar:"عبايات وفساتين", category_fr:"Abayas & Robes", price_ar:"حسب الطلب", price_fr:"Sur demande", images:[ABAYAS[7],ABAYAS[8]] },
+    { id:"H-105", title_ar:"عباية/فستان (موديل 5)", title_fr:"Abaya/Robe (Modèle 5)", category_ar:"عبايات وفساتين", category_fr:"Abayas & Robes", price_ar:"حسب الطلب", price_fr:"Sur demande", images:[ABAYAS[9],ABAYAS[10]] },
+
+    // أطفال (12+13) - نستخدم نفس الصور عبر المجموعات حتى لا تبقى مجموعة بدون صور
+    { id:"H-201", title_ar:"منتجات أطفال (مجموعة 1)", title_fr:"Enfants (Groupe 1)", category_ar:"أطفال", category_fr:"Enfants", price_ar:"حسب الطلب", price_fr:"Sur demande", images:[KIDS[0]] },
+    { id:"H-202", title_ar:"منتجات أطفال (مجموعة 2)", title_fr:"Enfants (Groupe 2)", category_ar:"أطفال", category_fr:"Enfants", price_ar:"حسب الطلب", price_fr:"Sur demande", images:[KIDS[1]] },
+    { id:"H-203", title_ar:"منتجات أطفال (مجموعة 3)", title_fr:"Enfants (Groupe 3)", category_ar:"أطفال", category_fr:"Enfants", price_ar:"حسب الطلب", price_fr:"Sur demande", images:[KIDS[0],KIDS[1]] },
+
+    // صعفات (14+15)
+    { id:"H-301", title_ar:"صعفات عصرية/تقليدية (مجموعة 1)", title_fr:"Sandales modernes/trad. (Groupe 1)", category_ar:"صعفات عصرية/تقليدية", category_fr:"Sandales (Moderne/Trad.)", price_ar:"حسب الطلب", price_fr:"Sur demande", images:[SANDALS[0]] },
+    { id:"H-302", title_ar:"صعفات عصرية/تقليدية (مجموعة 2)", title_fr:"Sandales modernes/trad. (Groupe 2)", category_ar:"صعفات عصرية/تقليدية", category_fr:"Sandales (Moderne/Trad.)", price_ar:"حسب الطلب", price_fr:"Sur demande", images:[SANDALS[1]] },
+
+    // مطبخ (16+17)
+    { id:"H-401", title_ar:"سرابيت مطبخ رمضانية (مجموعة 1)", title_fr:"Tabliers cuisine Ramadan (Groupe 1)", category_ar:"سرابيت المطبخ", category_fr:"Tabliers", price_ar:"حسب الطلب", price_fr:"Sur demande", images:[KITCHEN[0]] },
+    { id:"H-402", title_ar:"سرابيت مطبخ رمضانية (مجموعة 2)", title_fr:"Tabliers cuisine Ramadan (Groupe 2)", category_ar:"سرابيت المطبخ", category_fr:"Tabliers", price_ar:"حسب الطلب", price_fr:"Sur demande", images:[KITCHEN[1]] }
+  ];
+
+  // DOM
+  const grid = document.getElementById("grid");
+  const emptyBox = document.getElementById("empty");
+  const searchInput = document.getElementById("search");
+  const categorySelect = document.getElementById("category");
+
+  const brandTitleEl = document.getElementById("brandTitle");
+  const brandSubEl = document.getElementById("brandSub");
+  const heroTitleEl = document.getElementById("heroTitle");
+  const heroDescEl = document.getElementById("heroDesc");
+  const footBrandEl = document.getElementById("footBrand");
+  const footLineEl = document.getElementById("footLine");
+  const photoNoteEl = document.getElementById("photoNote");
+
+  const langAR = document.getElementById("langAR");
+  const langFR = document.getElementById("langFR");
+  const waTop = document.getElementById("waTop");
+  const fbTop = document.getElementById("fbTop");
+
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  let lang = "ar";
+
+  function setLang(newLang){
+    lang = newLang;
+    langAR.classList.toggle("active", lang === "ar");
+    langFR.classList.toggle("active", lang === "fr");
+    document.documentElement.lang = (lang === "ar") ? "ar" : "fr";
+    document.documentElement.dir = I18N[lang].dir;
+
+    brandTitleEl.textContent = I18N[lang].brandTitle;
+    brandSubEl.textContent = I18N[lang].brandSub;
+    heroTitleEl.textContent = I18N[lang].heroTitle;
+    heroDescEl.textContent = I18N[lang].heroDesc;
+    searchInput.placeholder = I18N[lang].searchPh;
+    footBrandEl.textContent = I18N[lang].footBrand;
+    footLineEl.textContent = I18N[lang].footLine;
+    photoNoteEl.textContent = I18N[lang].photoNote;
+
+    waTop.textContent = I18N[lang].waTop;
+    fbTop.textContent = I18N[lang].fbTop;
+    waTop.href = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(I18N[lang].waMsgTop)}`;
+    fbTop.href = FB_PAGE;
+
+    buildCategories(PRODUCTS);
+    render();
+  }
+
+  function getTitle(p){
+    return (lang === "ar") ? (p.title_ar || p.title_fr) : (p.title_fr || p.title_ar);
+  }
+  function getCategory(p){
+    return (lang === "ar") ? (p.category_ar || p.category_fr) : (p.category_fr || p.category_ar);
+  }
+  function getPrice(p){
+    return (lang === "ar") ? (p.price_ar || "حسب الطلب") : (p.price_fr || "Sur demande");
+  }
+
+  function buildCategories(products){
+    const set = new Set(products.map(p => getCategory(p)).filter(Boolean));
+    const cats = Array.from(set).sort((a,b)=>a.localeCompare(b, (lang==="ar"?"ar":"fr")));
+    categorySelect.innerHTML = `<option value="all">${I18N[lang].allCats}</option>`;
+    cats.forEach(c=>{
+      const opt = document.createElement("option");
+      opt.value = c;
+      opt.textContent = c;
+      categorySelect.appendChild(opt);
+    });
+  }
+
+  function makeWhatsAppLink(p){
+    const msg = I18N[lang].waMsgProduct(p);
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`;
+  }
+
+  // ===== Modal gallery logic =====
+  const modal = document.getElementById("modal");
+  const modalTitle = document.getElementById("modalTitle");
+  const modalImg = document.getElementById("modalImg");
+  const thumbsRow = document.getElementById("thumbsRow");
+  const closeModalBtn = document.getElementById("closeModal");
+  const prevBtn = document.getElementById("prevBtn");
+  const nextBtn = document.getElementById("nextBtn");
+
+  let currentImages = [];
+  let currentIndex = 0;
+
+  function openGallery(p){
+    const title = getTitle(p);
+    currentImages = (p.images || []).filter(Boolean);
+    if(!currentImages.length) return;
+
+    currentIndex = 0;
+    modalTitle.textContent = title + " — " + p.id;
+    renderModal();
+    modal.classList.add("show");
+    modal.setAttribute("aria-hidden","false");
+    document.body.style.overflow = "hidden";
+  }
+
+  function closeGallery(){
+    modal.classList.remove("show");
+    modal.setAttribute("aria-hidden","true");
+    document.body.style.overflow = "";
+  }
+
+  function renderModal(){
+    const src = currentImages[currentIndex];
+    modalImg.src = src;
+    modalImg.alt = "photo " + (currentIndex+1);
+
+    thumbsRow.innerHTML = currentImages.map((u,i)=>`
+      <div class="mini ${i===currentIndex?'active':''}" data-i="${i}">
+        <img src="${u}" alt="thumb">
+      </div>
+    `).join("");
+
+    thumbsRow.querySelectorAll(".mini").forEach(el=>{
+      el.addEventListener("click", ()=>{
+        currentIndex = Number(el.dataset.i);
+        renderModal();
+      });
+    });
+  }
+
+  function prev(){
+    if(!currentImages.length) return;
+    currentIndex = (currentIndex - 1 + currentImages.length) % currentImages.length;
+    renderModal();
+  }
+  function next(){
+    if(!currentImages.length) return;
+    currentIndex = (currentIndex + 1) % currentImages.length;
+    renderModal();
+  }
+
+  closeModalBtn.addEventListener("click", closeGallery);
+  modal.addEventListener("click", (e)=>{ if(e.target === modal) closeGallery(); });
+  prevBtn.addEventListener("click", prev);
+  nextBtn.addEventListener("click", next);
+  document.addEventListener("keydown", (e)=>{
+    if(!modal.classList.contains("show")) return;
+    if(e.key === "Escape") closeGallery();
+    if(e.key === "ArrowLeft") prev();
+    if(e.key === "ArrowRight") next();
+  });
+
+  function cardHTML(p){
+    const title = getTitle(p);
+    const cat = getCategory(p);
+    const price = getPrice(p);
+    const viewText = I18N[lang].viewPhotos;
+
+    const thumb = (p.images && p.images[0]) ? p.images[0] : "";
+
+    return `
+      <article class="card">
+        <div class="thumbWrap">
+          <img class="thumbImg" src="${thumb}" alt="${title}">
+          <span class="badge">${p.id}</span>
+          <button class="photoBtn" type="button" data-open="${p.id}">${viewText}</button>
+        </div>
+
+        <div class="body">
+          <h3 class="title">${title}</h3>
+          <div class="meta">
+            <span>${cat}</span>
+            <span class="price">${price}</span>
+          </div>
+          <div class="order">
+            <a class="wa" href="${makeWhatsAppLink(p)}" target="_blank" rel="noopener">${I18N[lang].orderWA}</a>
+            <a class="fb" href="${FB_PAGE}" target="_blank" rel="noopener">${I18N[lang].orderFB}</a>
+          </div>
+        </div>
+      </article>
+    `;
+  }
+
+  function render(){
+    const q = searchInput.value.trim().toLowerCase();
+    const catSelected = categorySelect.value;
+
+    const filtered = PRODUCTS.filter(p=>{
+      const title = (getTitle(p) || "").toLowerCase();
+      const id = (p.id || "").toLowerCase();
+      const cat = (getCategory(p) || "").toLowerCase();
+      const inCat = (catSelected === "all") ? true : (getCategory(p) === catSelected);
+      const inSearch = !q ? true : (title.includes(q) || id.includes(q) || cat.includes(q));
+      return inCat && inSearch;
+    });
+
+    grid.innerHTML = filtered.map(cardHTML).join("");
+    emptyBox.style.display = filtered.length ? "none" : "block";
+    emptyBox.textContent = I18N[lang].empty;
+
+    grid.querySelectorAll("[data-open]").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const id = btn.getAttribute("data-open");
+        const p = PRODUCTS.find(x=>x.id===id);
+        if(p) openGallery(p);
+      });
+    });
+  }
+
+  // Events
+  searchInput.addEventListener("input", render);
+  categorySelect.addEventListener("change", render);
+  langAR.addEventListener("click", ()=>setLang("ar"));
+  langFR.addEventListener("click", ()=>setLang("fr"));
+
+  // Start
+  setLang("ar");
+</script>
+</body>
+</html>
